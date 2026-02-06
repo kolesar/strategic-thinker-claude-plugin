@@ -1,0 +1,19 @@
+{
+  "name": "strategic-thinker-claude-plugin",
+  "owner": {
+    "name": "Asim Husanović",
+    "email": "your-email@example.com"
+  },
+  "plugins": [
+    {
+      "name": "strategic-thinker",
+      "description": "Apply structured strategic reasoning before implementation. Enforces a 5-pillar analysis framework (pattern recognition, root-cause questioning, resource analysis, hands-on validation, clear communication) on architectural decisions, system design, and complex problem-solving. Includes experimental extensions: De Bono Six Thinking Hats, Islamic epistemology cognitive levels, and Bridges synthesis connecting classical wisdom with modern engineering.",
+      "author": {
+        "name": "Asim Husanović"
+      },
+      "source": "./plugins/strategic-thinker",
+      "category": "productivity",
+      "homepage": "https://github.com/kolesar/strategic-thinker-claude-plugin/tree/main/plugins/strategic-thinker"
+    }
+  ]
+}

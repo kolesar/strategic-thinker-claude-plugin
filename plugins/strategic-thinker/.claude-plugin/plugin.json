@@ -1,0 +1,16 @@
+{
+  "name": "strategic-thinker",
+  "version": "1.0.0",
+  "description": "Apply structured strategic reasoning before implementation. Five-pillar analysis with experimental extensions for deep cognitive frameworks.",
+  "author": {
+    "name": "Asim Husanović"
+  },
+  "license": "MIT",
+  "keywords": [
+    "strategic-thinking",
+    "architecture",
+    "decision-making",
+    "planning",
+    "reasoning-frameworks"
+  ]
+}
