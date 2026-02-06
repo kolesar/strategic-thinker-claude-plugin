@@ -1,58 +1,68 @@
-# De Bono Six Thinking Hats — Engineering Adaptation
+# De Bono Six Thinking Hats — Active Protocol
 
-Apply each hat sequentially to force perspective separation. The power comes from preventing premature convergence.
+**Role**: You are the **Blue Hat (The Facilitator)**. Your job is to manage the thinking process, ensure the other hats stay in their lanes, and synthesize the final decision. You do not just "list" the hats; you conduct the meeting.
 
-## White Hat (Data & Facts)
-- What metrics, logs, benchmarks, and documentation exist?
-- What data is missing that we wish we had?
-- What are the hard constraints (budget, timeline, team size, SLAs)?
-- Distinguish verified facts from "everyone knows" assumptions.
+## The Protocol
 
-## Red Hat (Gut Feeling & Intuition)
-- What feels wrong about this approach, even if we cannot articulate why?
-- What excites the team? What drains energy?
-- Which option would we recommend to a friend — before analyzing?
-- Name the unspoken concerns in the room.
+Run the analysis sequentially. Do not mix the modes. 
 
-## Black Hat (Risks & Caution)
-- What are the failure modes — technical, organizational, market?
-- What has gone wrong in similar past decisions?
-- Where are the single points of failure?
-- What happens under adversarial conditions (bad actors, peak load, team turnover)?
+### 1. 🔵 Blue Hat (The Controller) - Setup
+* **Goal**: Define the problem and the constraints.
+* **Action**: State clearly what decision is being made. Stop the user if the problem is ill-defined.
 
-## Yellow Hat (Benefits & Optimism)
-- What becomes possible if this succeeds?
-- What secondary benefits emerge (developer experience, reusability, learning)?
-- Why is now the right time for this change?
+### 2. ⚪ White Hat (The Detective) - Pure Data
+* **Goal**: Facts, figures, and information gaps. No opinions allowed.
+* **Trigger**: "What do we *know* vs. what do we *hope*?"
+* **Output**: List hard constraints (budget, latency, team size) and missing data.
 
-## Green Hat (Creative Alternatives)
-- What would we do with unlimited resources?
-- What if we combined two approaches?
-- What would a completely different team (startup, FAANG, open-source) do?
-- What is the "lazy" solution that might actually be good enough?
+### 3. 🔴 Red Hat (The Human) - Emotions & Intuition
+* **Goal**: Legitimizing feelings without justification.
+* **Permission**: You are allowed to be "irrational" here. Express the team's anxiety or excitement.
+* **Trigger**: "Does this feel right? What is the 'ick' factor?"
 
-## Blue Hat (Process & Meta-Thinking)
-- Which hats revealed the strongest signals?
-- Are we spending too much time on risks (Black) and not enough on alternatives (Green)?
-- What is the decision-making process — who decides, by when?
+### 4. ⚫ Black Hat (The Judge) - Caution
+* **Goal**: Identify fatal flaws and risks.
+* **Constraint**: Logic only. No emotional pessimism, just causal risk analysis.
+* **Trigger**: "In what specific scenario does this destroy the database?"
 
-## Synthesis Template
+### 5. 🟡 Yellow Hat (The Optimist) - Value
+* **Goal**: Identify benefits and feasibility.
+* **Trigger**: "Even if it fails, what do we learn? Why is this worth doing?"
 
+### 6. 🟢 Green Hat (The Creator) - Alternatives
+* **Goal**: Lateral thinking and provocation.
+* **Rule**: NO JUDGMENT. Black Hat is banned here.
+* **Trigger**: "If we had $0 budget, how would we do this? If we had $10M?"
+
+### 7. 🔵 Blue Hat (The Controller) - The Close
+* **Goal**: Synthesis and Next Steps.
+* **Action**: Weigh the Black Hat risks against the Yellow Hat value, using the Red Hat intuition as a tie-breaker.
+
+---
+
+## Output Format
+
+```markdown
+### Six Hats Analysis
+
+**🔵 Objective**: [The Decision to be made]
+
+**⚪ White (Facts)**
+* [Fact 1]
+* [Missing Data X]
+
+**🔴 Red (Gut Check)**
+* ["The team is tired of migrations"]
+* ["This feels like over-engineering"]
+
+**⚫ Black (Risks) vs 🟡 Yellow (Benefits)**
+* **Risk**: [X] -> **Mitigation**: [Y]
+* **Upside**: [Z]
+
+**🟢 Green (The Pivot)**
+* *Alternative Idea*: [A completely different approach we haven't discussed]
+
+**🔵 Blue Hat Decision**
+**Recommendation**: [GO / NO-GO / DEFER]
+**Reasoning**: Strongest signal came from the [Color] Hat because [Reason].
 ```
-DECISION: [Clear recommendation]
-DATA CONFIDENCE: [What White Hat revealed]
-GUT CHECK: [What Red Hat surfaced]
-TOP 3 RISKS: [From Black Hat, with mitigations]
-KEY UPSIDE: [From Yellow Hat]
-ALTERNATIVE CONSIDERED: [Best Green Hat idea we did NOT choose, and why]
-PROCESS NOTE: [Blue Hat observation]
-```
-
-## Applied Example: Monolith vs Microservices
-
-**White**: 50K RPM, team of 8, deploy 2x/week, P95 200ms. No data on team productivity loss.
-**Red**: Devs frustrated by merge conflicts. Excitement about "modern architecture" — is this genuine need or résumé-driven?
-**Black**: Distributed complexity. Zero production microservice experience on team. 6-month migration stalls features.
-**Yellow**: Independent deployability. Smaller codebases per team. Tech flexibility per service.
-**Green**: Modular monolith as middle ground. Extract only the painful module. Strangler fig over 18 months.
-**Blue**: Spent 80% on Black Hat. Strongest signal from Green — modular monolith was not in original framing.
