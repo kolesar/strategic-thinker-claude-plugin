@@ -1,0 +1,98 @@
+# CLAUDE.md — Project Configuration for Istishraf
+
+<!--
+  Drop this file in your project root. Claude Code reads it at the start of
+  every session via /implement Phase 1. Customise every section marked [EDIT].
+  Remove sections that don't apply to your project.
+-->
+
+## Model Routing
+
+This project uses the Istishraf plugin with `opusplan`.
+
+| Phase | Model | How to activate |
+|---|---|---|
+| Strategic thinking (Phases 0–2, `/strategize`, `/think-deeper`, `/premortem`) | Opus | Press **Shift+Tab** to enter plan mode |
+| Implementation & review (Phases 3–5, `/implement`, `/review`) | Sonnet | Press **Shift+Tab** to exit plan mode |
+
+Standard session flow:
+```
+[Shift+Tab] → /istishraf <ticket or problem> → Foresight Report approved → [Shift+Tab] → implementation
+```
+
+---
+
+## Project Management
+
+<!-- [EDIT] Replace with your actual project details -->
+
+- **Issue tracker**: Jira / GitHub Issues / Linear — [EDIT: your project key, e.g. `PROJ`]
+- **Commit format**: `type(TICKET-NNN): short description` (e.g. `feat(PROJ-42): add retry logic`)
+- **Branch naming**: `feature/PROJ-NNN-short-description`
+- **PR template**: [EDIT: path to your PR template if any]
+
+### Jira workflow (if using Jira MCP)
+
+When a Jira ticket ID is provided to `/istishraf` or `/implement`:
+1. Fetch the full ticket via the Jira MCP tool
+2. Extract acceptance criteria and map them to the Foresight Report's success criteria
+3. Reference the ticket ID in every commit message
+4. Transition ticket status: `To Do` → `In Progress` (Phase 3 start) → `In Review` (PR opened)
+5. Add a comment to the ticket when the PR is opened
+
+---
+
+## Architecture
+
+<!-- [EDIT] Describe your system so Claude understands it before touching anything -->
+
+- **Stack**: [e.g. Node.js / TypeScript / PostgreSQL / Redis]
+- **Key services**: [list main components]
+- **Entry points**: [e.g. `src/index.ts`, `src/server.ts`]
+- **Test command**: [e.g. `npm test`, `pytest`]
+- **Lint/format**: [e.g. `npm run lint`]
+
+---
+
+## Coding Standards
+
+<!-- [EDIT] Your project-specific conventions -->
+
+- **Language version**: [e.g. TypeScript 5.x strict mode]
+- **Error handling**: [e.g. always use typed errors, never swallow exceptions]
+- **Logging**: [e.g. use `src/lib/logger.ts`, never `console.log` in production code]
+- **Constants**: [e.g. all string constants go in `src/constants/`]
+- **Tests**: [e.g. Jest, test files co-located as `*.test.ts`]
+- **No hard-coded values**: use constants/enums always
+
+---
+
+## Invariants
+
+<!-- [EDIT] Things that must always be true. Claude enforces these in Foresight Reports. -->
+
+These invariants must never be violated by any implementation:
+
+1. [e.g. All database writes inside a transaction must not include audit log writes]
+2. [e.g. User-facing API responses never expose internal error details]
+3. [e.g. All async operations have explicit error boundaries]
+
+---
+
+## Known Complexity Zones
+
+<!-- [EDIT] Areas where extra care is required — Claude will flag these in Phase 2 exploration -->
+
+- `[path]` — [why it is complex, e.g. "concurrent access, requires locking"]
+- `[path]` — [e.g. "legacy, no tests, do not refactor without /premortem first"]
+
+---
+
+## Prohibited Patterns
+
+<!-- Things Claude must never do in this codebase -->
+
+- Never use `any` type in TypeScript [EDIT: or your equivalent]
+- Never commit with `TODO:` comments unless they reference a ticket
+- Never modify migration files after they have been committed
+- [EDIT: add your own]

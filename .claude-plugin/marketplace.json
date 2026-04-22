@@ -1,19 +1,19 @@
 {
-  "name": "strategic-thinker-claude-plugin",
+  "name": "istishraf-claude-plugin",
   "owner": {
     "name": "Asim Husanović",
     "email": "your-email@example.com"
   },
   "plugins": [
     {
-      "name": "strategic-thinker",
-      "description": "Apply structured strategic reasoning before implementation. Enforces a 5-pillar analysis framework (pattern recognition, root-cause questioning, resource analysis, hands-on validation, clear communication) on architectural decisions, system design, and complex problem-solving. Includes experimental extensions: De Bono Six Thinking Hats, Islamic epistemology cognitive levels, and Bridges synthesis connecting classical wisdom with modern engineering.",
+      "name": "istishraf",
+      "description": "Istishraf (استشراف — Foresight). A complete think→decide→build→verify pipeline. Fuses structured strategic reasoning (5-pillar, Six Hats, Islamic epistemology, Bridges synthesis, Ibn Khaldun) with disciplined execution (8-phase TDD, adversarial review, quality gates).",
       "author": {
         "name": "Asim Husanović"
       },
-      "source": "./plugins/strategic-thinker",
+      "source": "./plugins/istishraf",
       "category": "productivity",
-      "homepage": "https://github.com/kolesar/strategic-thinker-claude-plugin/tree/main/plugins/strategic-thinker"
+      "homepage": "https://github.com/kolesar/strategic-thinker-claude-plugin"
     }
   ]
 }
