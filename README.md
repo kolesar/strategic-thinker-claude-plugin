@@ -263,7 +263,8 @@ Maps Al-Kindi, Ibn Tufayl, and Al-Ghazali's epistemological hierarchy onto engin
 │       │   ├── premortem.md       ← /istishraf:premortem
 │       │   ├── implement.md       ← /istishraf:implement
 │       │   ├── review.md          ← /istishraf:review
-│       │   └── shura.md           ← /istishraf:shura
+│       │   ├── shura.md           ← /istishraf:shura
+│       │   └── testaudit.md       ← /istishraf:testaudit
 │       ├── agents/
 │       │   └── principal-architect.md
 │       ├── skills/
@@ -271,7 +272,8 @@ Maps Al-Kindi, Ibn Tufayl, and Al-Ghazali's epistemological hierarchy onto engin
 │       │   ├── deep-cognition/
 │       │   ├── implementation/
 │       │   ├── adversarial-review/
-│       │   └── shura/
+│       │   ├── shura/
+│       │   └── testaudit/
 │       └── README.md
 ├── CLAUDE.md.template             ← copy to your project root as CLAUDE.md
 └── README.md

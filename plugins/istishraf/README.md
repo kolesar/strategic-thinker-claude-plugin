@@ -29,7 +29,7 @@ THINK                          DECIDE              BUILD              VERIFY
 ─────────────────────────────  ──────────────────  ─────────────────  ──────────────────
 /istishraf:assess-depth        Foresight Report    /istishraf:         /istishraf:review
 /istishraf:strategize      →   (Phase 2 of     →   implement      →   /istishraf:shura
-/istishraf:think-deeper        :istishraf)
+/istishraf:think-deeper        :istishraf)                             /istishraf:testaudit
 /istishraf:premortem
 ```
 
@@ -50,6 +50,7 @@ THINK                          DECIDE              BUILD              VERIFY
 | `implementation` | `/istishraf:implement`, "implement", "fix the bug", "add the feature" |
 | `adversarial-review` | `/istishraf:review`, "is this safe", "check for issues" |
 | `shura` | `/istishraf:shura`, "review from different angles", "another role", "council review" |
+| `testaudit` | `/istishraf:testaudit`, "are my tests fake", "coverage theater", "test quality", "do tests prove" |
 
 ---
 
@@ -75,4 +76,5 @@ skills/
   implementation/       PATTERNS.md, CHECKLISTS.md for /implement
   adversarial-review/   7-vector attack skill for /review
   shura/                Council review skill for /shura
+  testaudit/            Test semantics audit skill for /testaudit
 ```

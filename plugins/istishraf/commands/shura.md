@@ -142,6 +142,32 @@ Verdict: **CLEAN / FINDINGS** (severity: Critical / High / Medium / Low)
 
 ---
 
+### 🧪 The Test Semanticist (`--tests`)
+*Do the tests prove the business rules, or just exercise the code?*
+
+This seat reads tests the way a business analyst would — not checking
+syntax or coverage, but asking what each test actually *guarantees*.
+
+Applies the epistemology proof levels to the test suite in scope:
+- **L1–2 (theater)**: executes code or checks shape — proves nothing about rules
+- **L3 (partial)**: happy path only — boundary rules unverified
+- **L4 (rule enforcement)**: specific business rule encoded at its boundary
+- **L5 (invariant lock)**: mutation-resistant, holds across all scenarios
+
+Specific checks:
+- Are there tests that exist only to raise coverage numbers?
+- Would any of these tests pass even if the business rule were removed?
+- Are boundary conditions (the exact threshold, the off-by-one) tested?
+- Are side effects (balance deductions, audit logs, state changes) asserted — or just the return value?
+- If acceptance criteria are visible, is each criterion backed by at least one L4 test?
+
+This seat does **not** do a full `/istishraf:testaudit` — for a dedicated
+deep audit of the entire test suite, use that command directly.
+
+Verdict: **TRUSTWORTHY / PARTIALLY TRUSTWORTHY / COVERAGE THEATER**
+
+---
+
 ## Output Format
 
 ```markdown
@@ -185,6 +211,14 @@ Verdict: **CLEAN / FINDINGS** (severity: Critical / High / Medium / Low)
 ### 🔐 Security Auditor *(if --security)*
 **Verdict**: CLEAN / FINDINGS
 [Severity-classified findings if any.]
+
+---
+
+### 🧪 Test Semanticist *(if --tests)*
+**Verdict**: TRUSTWORTHY / PARTIALLY TRUSTWORTHY / COVERAGE THEATER
+[Classification table: test name | level | what it proves | verdict]
+[Theater tests found with rewrite suggestions.]
+[Uncovered rules if AC was provided.]
 
 ---
 
@@ -234,6 +268,8 @@ Verdict: **CLEAN / FINDINGS** (severity: Critical / High / Medium / Low)
 |---|---|
 | Quick safety check before commit | `/istishraf:review` (Adversary only, fast) |
 | Full multi-perspective review | `/istishraf:shura` (council, thorough) |
+| Are my tests proving the rules? | `/istishraf:testaudit` (dedicated deep audit) |
+| Quick test quality check (mixed PR) | `/istishraf:shura staged --tests` |
 | Strategic design review | `/istishraf:strategize` or `/istishraf:think-deeper` |
 | Plan attack before building | `/istishraf:premortem` |
 | Full pipeline | `/istishraf:istishraf` |

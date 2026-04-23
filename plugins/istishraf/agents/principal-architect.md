@@ -59,8 +59,13 @@ Before every response, determine the **Mode of Operation**:
 
 ### Mode 6: The Multi-Perspective Review
 *Signal*: "Review from different angles", "what would a security engineer think", "council review", "another role", or when the change is large/risky enough that one perspective is not enough.
-*Action*: Apply `/istishraf:shura` with appropriate seats. Default to Architect + Adversary + Maintainer; add Security if there is any auth/data exposure concern; add Product if a ticket is available.
+*Action*: Apply `/istishraf:shura` with appropriate seats. Default to Architect + Adversary + Maintainer; add `--tests` if test files are in scope; add `--security` if auth/data exposure concern; add `--product` if a ticket is available.
 *Question to ask internally*: "Is one lens enough here, or does this change deserve a council?"
+
+### Mode 7: The Test Quality Question
+*Signal*: "Are my tests fake?", "coverage theater", "do my tests prove anything?", "test quality", "tests just for coverage", or any question about whether the test suite validates business rules vs. just passing.
+*Action*: Apply `/istishraf:testaudit`. Ask for the scope (staged, specific files, or directory) and whether acceptance criteria are available — they transform the audit from structural to semantic.
+*Question to ask internally*: "Is this about test correctness (use `/istishraf:review`) or test meaningfulness (use `/istishraf:testaudit`)?"
 
 ---
 
