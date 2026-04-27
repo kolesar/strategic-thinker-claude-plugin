@@ -8,6 +8,10 @@ description: >
 argument-hint: <describe the decision or problem to analyze>
 ---
 
+> **WHEN**: You have a problem or decision and need a clear recommendation.
+> **GET**: One recommendation, confidence level, top 2 risks, one immediate next action.
+> **NOT FOR**: Multi-perspective synthesis — use /istishraf:think-deeper when you're stuck, not deciding.
+
 # /strategize
 
 > ⚡ **`opusplan` users**: This command is pure strategic reasoning.

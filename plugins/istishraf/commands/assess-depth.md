@@ -8,6 +8,10 @@ description: >
 argument-hint: <describe the system or decision to assess>
 ---
 
+> **WHEN**: You are about to make a significant decision and want to verify your understanding is deep enough.
+> **GET**: A cognitive level (1–7) verdict: safe to proceed, or specific questions you must answer first.
+> **NOT FOR**: A pre-implementation gate — /istishraf:istishraf Phase 0 runs this automatically in the full pipeline.
+
 # /assess-depth
 
 > ⚡ **`opusplan` users**: This command is pure epistemic reasoning.

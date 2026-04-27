@@ -8,6 +8,10 @@ description: >
 argument-hint: <problem description> [--hats] [--levels] [--bridges] [--ibn-khaldun] [--all]
 ---
 
+> **WHEN**: You have conflicting signals, are stuck between options, or need to understand WHY.
+> **GET**: The point of divergence between frameworks — that conflict is the insight you need.
+> **NOT FOR**: A simple decision — use /istishraf:strategize when you need an answer, not understanding.
+
 # /think-deeper
 
 > ⚡ **`opusplan` users**: This command is pure deep reasoning.

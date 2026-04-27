@@ -8,6 +8,10 @@ description: >
 argument-hint: <describe the decision, feature, or problem>
 ---
 
+> **WHEN**: You have a significant feature or decision where thinking and building both need discipline.
+> **GET**: A full think→decide→build→verify pipeline with a human checkpoint between strategy and implementation.
+> **NOT FOR**: Routine tasks — if the scope is clear and small, go directly to /istishraf:implement.
+
 # /istishraf — استشراف (Foresight)
 
 *"Do not cross the river before you know its depth."*

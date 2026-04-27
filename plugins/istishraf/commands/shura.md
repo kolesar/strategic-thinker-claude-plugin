@@ -10,6 +10,10 @@ argument-hint: >
   [--ops] [--product] [--security] [--all]
 ---
 
+> **WHEN**: You have staged changes or a branch ready for a PR and want a thorough multi-perspective review.
+> **GET**: 3–7 council seat verdicts with a synthesis, must-fix list, and a wisdom note.
+> **NOT FOR**: A quick pre-commit check — use /istishraf:review for that. Shura is for before you open the PR.
+
 # /shura — شورى (Consultation)
 
 *"Matters are decided by consultation among those who know."*

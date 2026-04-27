@@ -7,6 +7,10 @@ description: >
 argument-hint: <describe the plan, feature, or approach to pressure-test>
 ---
 
+> **WHEN**: You have a plan and want to find what will destroy it before you start building.
+> **GET**: 5 failure stories, assumption inventory, reversibility map, and mitigations for each risk.
+> **NOT FOR**: A review of code already written — use /istishraf:shura or /istishraf:review for that.
+
 # /premortem — Attack the Plan Before You Execute It
 
 > ⚡ **`opusplan` users**: Pre-mortem is strategic reasoning, not code.

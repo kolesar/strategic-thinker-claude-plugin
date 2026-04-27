@@ -11,6 +11,10 @@ argument-hint: >
   [--rules "business rules"] [--all]
 ---
 
+> **WHEN**: You want to know if your tests actually prove business rules or just run code for coverage.
+> **GET**: Classification table (L1–L5) for each test, coverage theater list with rewrites, priority fixes.
+> **NOT FOR**: General code review — use /istishraf:shura --tests for a lighter test quality check inside a full review.
+
 # /istishraf:testaudit — Test Semantics Audit
 
 > ⚡ **`opusplan` users**: Enter plan mode first (**Shift+Tab**) — this is

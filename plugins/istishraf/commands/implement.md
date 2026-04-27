@@ -8,6 +8,10 @@ argument-hint: <describe the feature or issue to implement, e.g. "GH issue #42 �
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash, TodoWrite, WebFetch, AskUserQuestion
 ---
 
+> **WHEN**: Strategy is decided and you are ready to build.
+> **GET**: A clean implementation: TDD red-green-refactor, zero regressions, adversarial review, PR quality gate.
+> **NOT FOR**: A thinking or strategy session — decide first with /istishraf:strategize, then come here.
+
 # /implement — Disciplined Execution
 
 ## [IMPLEMENT MODE]

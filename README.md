@@ -67,6 +67,33 @@ The one exception is the full pipeline, whose command file shares the plugin nam
 
 ---
 
+
+---
+
+## Which command — and why
+
+The fastest way to pick the right command:
+
+| Situation | Command | What you get |
+|---|---|---|
+| I have a problem and need a recommendation | `/istishraf:strategize` | One decision, confidence level, top 2 risks, one next action |
+| I have conflicting signals or don't know why we're stuck | `/istishraf:think-deeper` | Where frameworks disagree — that divergence is the insight |
+| Am I making a high-stakes decision with enough understanding? | `/istishraf:assess-depth` | Level 1–7 verdict: safe to proceed, or questions you must answer first |
+| We have a plan — what could destroy it? | `/istishraf:premortem` | 5 failure stories, assumption inventory, mitigations |
+| Strategy decided — now I build | `/istishraf:implement` | 8-phase execution: TDD, zero regressions, clean PR |
+| Quick check before `git commit` | `/istishraf:review` | 7 attack vectors, pass/fail per vector, verdict |
+| Full check before opening a PR | `/istishraf:shura` | 3–7 council seats, synthesis verdict, must-fix list |
+| Are my tests proving rules or just running for coverage? | `/istishraf:testaudit` | Classification table (L1–L5), theater list, priority rewrites |
+| Thinking + building in one sequence for a significant feature | `/istishraf:istishraf` | Full pipeline with checkpoint between thinking and building |
+
+**The one-line decision rules:**
+
+- Use `:strategize` when you need **a decision**.
+- Use `:think-deeper` when you need to understand **why you're stuck**.
+- Use `:review` before **`git commit`** — fast, 30 seconds.
+- Use `:shura` before **opening a PR** — thorough, multiple perspectives.
+- When unsure: start with `:strategize`.
+
 ## `/istishraf:shura` — Multi-Perspective Review
 
 `/istishraf:shura` convenes a council of reviewer personas, each examining your code from a different professional angle. Use it when a single adversarial pass is not enough — after a large PR, before merging a risky change, or any time you want more than one voice.

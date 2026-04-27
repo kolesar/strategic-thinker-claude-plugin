@@ -1,56 +1,105 @@
 # Istishraf Plugin — Internal Reference
 
-This file is a quick reference for developers working on the plugin and for
-Claude Code context. Full documentation is in the root `README.md`.
+This file is the primary context Claude Code loads when the plugin runs.
+Full documentation for humans is in the root `README.md`.
 
 ---
 
-## Commands
+## Which command to use — and why
 
-Every command is invoked as `/istishraf:<command>`.
+This is the single most important section. Every command has one situation
+that calls for it, one output it produces, and one thing it is not for.
 
-| Command | File | Purpose |
+```
+SITUATION                                    COMMAND              OUTPUT
+────────────────────────────────────────────────────────────────────────────────
+I have a problem and need a recommendation   :strategize          One decision +
+                                                                  confidence +
+                                                                  top 2 risks
+
+I have conflicting signals or don't know     :think-deeper        Where frameworks
+why we're stuck                                                   disagree — that
+                                                                  divergence is the
+                                                                  insight
+
+Am I making a high-stakes decision with      :assess-depth        Level 1–7 verdict:
+enough understanding?                                             safe to proceed,
+                                                                  or questions first
+
+We have a plan — what could destroy it?      :premortem           5 failure stories +
+                                                                  assumption inventory
+                                                                  + mitigations
+
+Strategy decided — now I build               :implement           8-phase execution:
+                                                                  TDD, zero regressions,
+                                                                  clean PR
+
+Quick check before git commit                :review              7 attack vectors,
+                                                                  pass/fail, verdict
+
+Full check before opening a PR              :shura               3–7 council seats,
+                                                                  synthesis verdict,
+                                                                  must-fix list
+
+Are my tests proving rules or just          :testaudit           Classification table
+running code for coverage?                                        (L1–L5), theater list,
+                                                                  priority rewrites
+
+I need thinking + building in one           :istishraf           Full pipeline with
+sequence for a significant feature                                checkpoint between
+                                                                  thinking and building
+```
+
+**The one-line decision rule**:
+- Use `:strategize` when you need **a decision**.
+- Use `:think-deeper` when you need to understand **why you're stuck**.
+- Use `:review` before **git commit** (30 seconds).
+- Use `:shura` before **opening a PR** (thorough).
+- When unsure: start with `:strategize`.
+
+---
+
+## Command → file → invocation
+
+| Invoke as | File | Model |
 |---|---|---|
-| `/istishraf:istishraf` | `commands/istishraf.md` | Full pipeline: Phase 0–5 |
-| `/istishraf:strategize` | `commands/strategize.md` | 5-lens strategic analysis |
-| `/istishraf:think-deeper` | `commands/think-deeper.md` | Multi-framework synthesis |
-| `/istishraf:assess-depth` | `commands/assess-depth.md` | Epistemic audit |
-| `/istishraf:premortem` | `commands/premortem.md` | Attack the plan before executing |
-| `/istishraf:implement` | `commands/implement.md` | 8-phase TDD execution |
-| `/istishraf:review` | `commands/review.md` | Adversarial 7-vector review (fast) |
-| `/istishraf:shura` | `commands/shura.md` | Multi-perspective council review |
+| `/istishraf:istishraf` | `commands/istishraf.md` | Opus (Ph.0–2) → Sonnet (Ph.3–5) |
+| `/istishraf:strategize` | `commands/strategize.md` | Opus |
+| `/istishraf:think-deeper` | `commands/think-deeper.md` | Opus |
+| `/istishraf:assess-depth` | `commands/assess-depth.md` | Opus |
+| `/istishraf:premortem` | `commands/premortem.md` | Opus |
+| `/istishraf:implement` | `commands/implement.md` | Sonnet |
+| `/istishraf:review` | `commands/review.md` | Sonnet |
+| `/istishraf:shura` | `commands/shura.md` | Opus |
+| `/istishraf:testaudit` | `commands/testaudit.md` | Opus |
 
 ---
 
-## How commands relate
+## How commands relate as a pipeline
 
 ```
-THINK                          DECIDE              BUILD              VERIFY
-─────────────────────────────  ──────────────────  ─────────────────  ──────────────────
-/istishraf:assess-depth        Foresight Report    /istishraf:         /istishraf:review
-/istishraf:strategize      →   (Phase 2 of     →   implement      →   /istishraf:shura
-/istishraf:think-deeper        :istishraf)                             /istishraf:testaudit
-/istishraf:premortem
+THINK                    DECIDE              BUILD            VERIFY
+────────────────────     ────────────────    ─────────────    ──────────────────
+:assess-depth            Foresight Report    :implement       :review       (fast)
+:strategize          →   (Phase 2 of     →               →   :shura        (full)
+:think-deeper            :istishraf)                          :testaudit    (tests)
+:premortem
 ```
 
-`/istishraf:istishraf` orchestrates the full pipeline above in sequence.
-
-**Quick path** (skip strategy, just execute): `/istishraf:implement`
-**Quick review** (one voice, fast): `/istishraf:review`
-**Full review** (six voices, thorough): `/istishraf:shura`
+`:istishraf` orchestrates the full pipeline above in one sequence.
 
 ---
 
-## Skills and what auto-triggers them
+## Skills and auto-triggers
 
-| Skill | Triggers on |
+| Skill | Auto-triggers on |
 |---|---|
-| `strategic-analysis` | `/istishraf:strategize`, "design", "architect", "should we", "trade-off" |
-| `deep-cognition` | `/istishraf:think-deeper`, "multiple perspectives", "six hats", "deeper analysis" |
-| `implementation` | `/istishraf:implement`, "implement", "fix the bug", "add the feature" |
-| `adversarial-review` | `/istishraf:review`, "is this safe", "check for issues" |
-| `shura` | `/istishraf:shura`, "review from different angles", "another role", "council review" |
-| `testaudit` | `/istishraf:testaudit`, "are my tests fake", "coverage theater", "test quality", "do tests prove" |
+| `strategic-analysis` | `:strategize`, "design", "architect", "should we", "trade-off" |
+| `deep-cognition` | `:think-deeper`, "multiple perspectives", "six hats", "deeper analysis" |
+| `implementation` | `:implement`, "implement", "fix the bug", "add the feature" |
+| `adversarial-review` | `:review`, "is this safe", "check for issues" |
+| `shura` | `:shura`, "review from different angles", "another role", "council review" |
+| `testaudit` | `:testaudit`, "are my tests fake", "coverage theater", "test quality" |
 
 ---
 
@@ -59,9 +108,11 @@ THINK                          DECIDE              BUILD              VERIFY
 `opusplan` only switches on Claude Code's native plan mode (Shift+Tab).
 It does not auto-detect skill invocations.
 
-| Enter plan mode (Shift+Tab) before | Exit plan mode (Shift+Tab) before |
-|---|---|
-| `:strategize`, `:think-deeper`, `:assess-depth`, `:premortem`, `:shura`, `:istishraf` Ph.0–2 | `:implement`, `:review`, `:istishraf` Ph.3–5 |
+**Enter plan mode (Shift+Tab) before**: `:strategize`, `:think-deeper`,
+`:assess-depth`, `:premortem`, `:shura`, `:testaudit`, `:istishraf` Ph.0–2
+
+**Exit plan mode (Shift+Tab) before**: `:implement`, `:review`,
+`:istishraf` Ph.3–5
 
 ---
 
@@ -73,8 +124,8 @@ agents/            principal-architect.md — triage agent, routes to right comm
 skills/
   strategic-analysis/   5-lens + Six Hats + Bridges + Ibn Khaldun references
   deep-cognition/       Extended framework playbooks
-  implementation/       PATTERNS.md, CHECKLISTS.md for /implement
-  adversarial-review/   7-vector attack skill for /review
-  shura/                Council review skill for /shura
-  testaudit/            Test semantics audit skill for /testaudit
+  implementation/       PATTERNS.md, CHECKLISTS.md for :implement
+  adversarial-review/   7-vector attack skill for :review
+  shura/                Council review skill for :shura
+  testaudit/            Test semantics audit skill for :testaudit
 ```

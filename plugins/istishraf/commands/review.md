@@ -7,6 +7,10 @@ description: >
 argument-hint: [optional: describe what to review, or leave blank to review current staged changes]
 ---
 
+> **WHEN**: You have written code and are about to run git commit.
+> **GET**: Pass/fail verdict on 7 attack vectors with specific fixes. Fast — designed for pre-commit.
+> **NOT FOR**: A full PR review — use /istishraf:shura before opening a PR, not /istishraf:review.
+
 # /review — Adversarial Review
 
 *"The code that embarrasses you in production is the code you were too proud to question before committing."*
