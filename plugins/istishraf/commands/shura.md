@@ -133,14 +133,70 @@ Verdict: **COMPLETE / GAPS FOUND / OUT OF SCOPE**
 ### 🔐 The Security Auditor (`--security`)
 *Dedicated deep security analysis — beyond the Adversary's pass.*
 
-This seat goes further than the Adversary on security-specific concerns:
-- **Authentication & authorization**: every endpoint — who can call this? Is it checked?
-- **Input sanitization**: every user-supplied value — is it validated before use?
-- **Data exposure**: what does this leak in logs, responses, or error messages?
-- **Dependency risk**: does this introduce new packages? Are they trustworthy?
-- **Secrets**: any credentials, tokens, or keys that could be extracted?
-- **Privilege boundary**: does this cross a privilege boundary? Is the crossing explicit?
-- **Audit trail**: are security-relevant actions logged with the right context?
+This seat applies two layers of analysis. The first is Anderson's
+4-element framework from *Security Engineering* — the four root causes
+of every security failure in history. The second is implementation-level
+checks that the Adversary seat does not cover in depth.
+
+#### Layer 1 — Anderson's 4-Element Framework
+
+Ask these four questions about the system or component being reviewed:
+
+- **Policy**: Is there an explicit, testable statement of what this
+  component is supposed to prevent? If the security goal cannot be
+  stated in one sentence, the implementation cannot enforce it.
+  *"Authenticated users only" is a policy. "Secure" is not.*
+
+- **Mechanism**: Does the implementation actually enforce the policy?
+  Is the mechanism complete — does it cover all paths, not just the
+  happy path? Does it remain enforced under error conditions, timeouts,
+  and retries?
+
+- **Assurance**: What is the evidence that the mechanism works?
+  Is there a test that would fail if the mechanism were removed?
+  Has it been reviewed by someone other than the author?
+  Is the assurance proportionate to the risk — or is high-risk logic
+  covered by an existence test?
+
+- **Incentives**: Are the people responsible for this security
+  actually motivated to maintain it? Does the system make the secure
+  path the easy path — or does it require extra effort that people
+  will skip under pressure? If a developer bypasses this control,
+  will anyone notice?
+
+#### Layer 2 — Implementation Checks
+
+- **Authentication & authorization**: every entry point — who can call
+  this? Is it checked on every path, including error paths?
+- **Input sanitization**: every user-supplied value — validated before
+  use, rejected with a clear error, never silently truncated?
+- **Data exposure**: what does this leak in logs, responses, or errors?
+  Does the error message reveal internal structure to an attacker?
+- **Dependency risk**: new packages introduced? Are they maintained,
+  well-audited, and minimal in scope?
+- **Secrets**: any credentials, tokens, or keys that could be extracted
+  from source, logs, responses, or environment variables?
+- **Privilege boundary**: does this cross a privilege boundary?
+  Is the crossing explicit, minimal, and logged?
+- **Audit trail**: are security-relevant actions logged with enough
+  context to reconstruct an incident — who, what, when, outcome?
+
+#### The Threat Model Check
+
+Before issuing a verdict, ask: *who is the realistic opponent here?*
+
+- **Opportunistic attacker** (automated scanners, script kiddies):
+  Is the obvious attack surface closed?
+- **Motivated outsider** (targeted attacker with time):
+  Are there chained vulnerabilities that require effort but lead to
+  significant impact?
+- **Malicious insider** (someone with legitimate access):
+  Can a legitimate user escalate privileges or exfiltrate data?
+  Would the audit trail catch it?
+
+A finding that blocks an opportunistic attacker is Low severity.
+A finding that enables a motivated outsider is High.
+A finding that enables a malicious insider with no audit trail is Critical.
 
 Verdict: **CLEAN / FINDINGS** (severity: Critical / High / Medium / Low)
 
@@ -214,7 +270,17 @@ Verdict: **TRUSTWORTHY / PARTIALLY TRUSTWORTHY / COVERAGE THEATER**
 
 ### 🔐 Security Auditor *(if --security)*
 **Verdict**: CLEAN / FINDINGS
-[Severity-classified findings if any.]
+
+**Anderson Framework**:
+- Policy: [explicit and testable? or vague?]
+- Mechanism: [enforces policy on all paths including errors?]
+- Assurance: [evidence the mechanism works?]
+- Incentives: [secure path is the easy path?]
+
+**Threat Model**: [realistic opponent for this component]
+
+**Implementation Findings** *(if any)*:
+- [severity]: [specific finding with location]
 
 ---
 

@@ -122,7 +122,7 @@ It does not auto-detect skill invocations.
 commands/          One .md file per command. Filename = command name.
 agents/            principal-architect.md — triage agent, routes to right command.
 skills/
-  strategic-analysis/   5-lens + Six Hats + Bridges + Ibn Khaldun references
+  strategic-analysis/   5-lens + Six Hats + Bridges + Ibn Khaldun + Anderson Security Engineering references
   deep-cognition/       Extended framework playbooks
   implementation/       PATTERNS.md, CHECKLISTS.md for :implement
   adversarial-review/   7-vector attack skill for :review

@@ -88,6 +88,7 @@ Available for deeper analysis when core lenses reveal conflicting signals:
 - **Islamic Epistemology Cognitive Levels** → `references/cognitive-levels.md` — Depth-of-understanding analysis
 - **Bridges Synthesis** → `references/bridges-synthesis.md` — Classical wisdom × modern engineering
 - **Ibn Khaldun's Muqaddimah** → `references/ibn-khaldun.md` — Team dynamics, organizational cohesion, decay signals
+- **Security Engineering (Anderson)** → `references/security-engineering.md` — 4-element security framework, threat modeling, usability, economics of security. Load when the decision or Foresight Report has security properties.
 
 Invoke extended frameworks when:
 - Core lenses reveal conflicting signals

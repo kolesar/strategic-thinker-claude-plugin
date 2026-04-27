@@ -126,7 +126,7 @@ The fastest way to pick the right command:
 | `--maintainer` | The Maintainer | Can a junior dev maintain this safely in 6 months? |
 | `--ops` | The Operator | Can this be deployed, monitored, and debugged at 3am? |
 | `--product` | The Product Guardian | Does this actually close the ticket? |
-| `--security` | The Security Auditor | Auth, injection, data exposure, privilege boundaries |
+| `--security` | The Security Auditor | Anderson's 4-element framework (Policy/Mechanism/Assurance/Incentives) + threat model + implementation checks |
 | `--all` | Full council | All six seats |
 
 **Default (no flags): `--architect --adversary --maintainer`** — covers 80% of everyday PRs.
@@ -271,6 +271,15 @@ Maps Al-Kindi, Ibn Tufayl, and Al-Ghazali's epistemological hierarchy onto engin
 - **The Generational Cycle** — why teams that were fast are now slow
 - **'Ilm al-'Umrān** — individual performance is mostly determined by environment, not innate ability
 
+### Anderson's Security Engineering Framework
+Distilled from Ross Anderson's *Security Engineering* (3rd edition, 2020). Loaded automatically when a decision or Foresight Report has security properties. Enriches `/istishraf:strategize`, `/istishraf:think-deeper`, and the Foresight Report in `/istishraf:istishraf`. Powers the Security Auditor seat in `/istishraf:shura --security`.
+
+- **Policy / Mechanism / Assurance / Incentives** — the 4-element framework. Every security failure in history maps to one of these four root causes.
+- **Threat modeling** — four realistic opponent classes (opportunistic, motivated outsider, malicious insider, nation-state) with proportionate controls for each.
+- **Psychology of security** — security that users work around provides no security. Usability is a security property, not a trade-off against it.
+- **Economics of security** — when the cost of failure falls on someone other than the decision-maker, the decision will be systematically wrong.
+- **Assurance hierarchy** — five levels from "vendor claims" to "withstood real attacks." Match assurance investment to actual risk.
+
 ---
 
 ## Structure
@@ -295,7 +304,7 @@ Maps Al-Kindi, Ibn Tufayl, and Al-Ghazali's epistemological hierarchy onto engin
 │       ├── agents/
 │       │   └── principal-architect.md
 │       ├── skills/
-│       │   ├── strategic-analysis/
+│       │   ├── strategic-analysis/    ← includes security-engineering.md reference
 │       │   ├── deep-cognition/
 │       │   ├── implementation/
 │       │   ├── adversarial-review/

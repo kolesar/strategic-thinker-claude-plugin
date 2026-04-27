@@ -165,10 +165,21 @@ Apply the 5 Lenses silently. Output only the synthesis.
 ### Success Criteria (How We Know We're Done)
 [Measurable. Observable. Not vague.]
 
+### Security Properties *(if applicable)*
+If this feature has security implications, load `references/security-engineering.md`
+and confirm these are addressed before approving implementation:
+
+- **Policy**: [security goal as a testable one-sentence invariant]
+- **Mechanism**: [how policy is enforced on all paths, including errors]
+- **Assurance**: [evidence plan — what test would fail if the control were removed?]
+- **Incentives**: [is the secure path the easy path for the implementer?]
+- **Threat model**: [realistic opponent + worst-case outcome]
+
 ### The Implementation Contract
 - **Approach**: [one line]
 - **TDD required**: Yes / No — [why]
 - **Adversarial review required**: Yes / No — [why]
+- **Security seat in Shūrā required**: Yes / No — [why]
 - **Phase gate required before PR**: Yes / No
 ```
 
