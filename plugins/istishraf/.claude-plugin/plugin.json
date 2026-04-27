@@ -1,6 +1,6 @@
 {
   "name": "istishraf",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Istishraf (استشراف — Foresight). A complete think→decide→build→verify pipeline for Claude Code. Fuses structured strategic reasoning (5-pillar analysis, Six Thinking Hats, Islamic epistemology, classical Bridges) with disciplined execution (8-phase TDD, adversarial self-review, quality gates). Use when you need to think before you code — and then code correctly.",
   "author": {
     "name": "Asim Husanović"
@@ -14,6 +14,7 @@
     "adversarial-review",
     "foresight",
     "reasoning-frameworks",
-    "quality-gates"
+    "quality-gates",
+    "security-engineering"
   ]
 }
